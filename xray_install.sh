@@ -49,7 +49,7 @@ if [[ "$(uname)" == 'Linux' ]]; then
     esac
 fi
 # echo "result $ARCH"
-INFO_LATEST=$(curl -sL https://api.github.com/repos/XTLS/Xray-core/releases/latest)
+INFO_LATEST=$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases/latest)
 TAG="$(echo $INFO_LATEST | sed 'y/,/\n/' | grep 'tag_name' | awk -F '"' '{print $4}')"
 [ -z "${ARCH}" ] && echo "Error: Not supported OS Architecture" && exit 1
 
@@ -86,7 +86,7 @@ mv xray/geosite.dat xray/geoip.dat /usr/local/share/xray/
 # Clean
 rm -rf xray_install.sh xray.zip xray
 
-curl https://get.acme.sh | sh
+curl -s https://get.acme.sh | sh
 ln -s $HOME/.acme.sh/acme.sh /usr/bin
 
 echo "Done"

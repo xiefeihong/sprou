@@ -3,14 +3,22 @@
     "description": "xray websocket proxy",
     "keywords": ["xray vmess vless trojan shadowsocks socks tor"],
     "env": {
-      "ID": {
-            "description": "uuidgen, https://www.uuidgenerator.net",
-            "value": "ad806487-2d26-4636-98b6-ab85cc8521f7"
+        "EMAIL": {
+            "description": "acme.sh use email",
+            "value": "user@foxmail.com"
+        },
+        "DOMAIN": {
+            "description": "heroku domain",
+            "value": "appname.herokuapp.com"
+        },
+        "UUID": {
+            "description": "Xprou UUID",
+            "value": "ce7ea10b-5b27-49ab-a93d-6b184df9cce9"
         },
         "WSPATH": {
             "description": "WebSocket Path",
             "value": "/websocket"
-        }      
+        }   
     },
     "website": "https://github.com/xiefeihong/Xray-heroku",
     "repository": "https://github.com/xiefeihong/Xray-heroku",
