@@ -5,8 +5,11 @@ SSL_KEY=/etc/ssl-key/$DOMAIN.key
 
 mkdir -p /etc/ssl-key
 
-acme.sh --register-account -m $EMAIL
+echo "注册email"
+acme.sh --register-account -m email=$EMAIL
+echo "生成证书"
 acme.sh --issue -d $DOMAIN --standalone -k ec-256
+echo "安装证书"
 acme.sh --installcert -d $DOMAIN --fullchainpath $SSL_CRT --keypath $SSL_KEY --ecc
 
 cat>/etc/xray/config.json<<EOF

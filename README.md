@@ -2,12 +2,8 @@
 
 ### 本地测试
 
-docker build repo for xray
-
-https://hub.docker.com/r/v2fly/v2fly-core
-
-docker build -t xray-docker .
-docker run -d -p 443:443 --env-file .env xray-docker
+1. docker build -t xray-docker .
+2. docker run -d -p 443:443 -p 80:80 --env-file .env xray-docker
 
 ### 步骤
 
