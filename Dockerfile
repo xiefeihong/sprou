@@ -1,6 +1,7 @@
 FROM alpine:latest
 LABEL maintainer "Xray Community <dev@xray.org>"
 
+ENV TZ=Asia/Shanghai
 WORKDIR /root
 COPY xray_install.sh /root
 COPY xray_run.sh /root

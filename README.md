@@ -4,17 +4,20 @@
 
 ```
 cat>.env<<EOF
-EMAIL=xiefeihong@foxmail.com
-DOMAIN=xiefeihong.xyz
+EMAIL=user@foxmail.com
+DOMAIN=appname.herokuapp.com
 PORT=443
-UUID=b831381d-6324-4d53-ad4f-8cda48b30811
+UUID=ce7ea10b-5b27-49ab-a93d-6b184df9cce9
 WSPATH=/websocket
 EOF
 docker build -t xray-docker .
 docker run -d -p 443:443 -p 80:80 --env-file .env xray-docker
+firewall-cmd --add-port=443/tcp --permanent
+firewall-cmd --add-port=80/tcp --permanent
+firewall-cmd --reload
 ```
 
-### 步骤
+### Heroku部署
 
  1. Fork 本专案到自己的 GitHub 账户（用户名以 `example` 为例）
  2. 修改专案名称，注意不要包含 `Xray` 和 `heroku` 两个关键字（修改后的专案名以 `demo` 为例）
@@ -24,7 +27,7 @@ docker run -d -p 443:443 -p 80:80 --env-file .env xray-docker
 
  4. 回到专案首页，点击上面的链接以部署 Xray
  
- ### 客户端
+### 客户端
 
 ```json
 "outbounds": [
